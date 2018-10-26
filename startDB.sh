@@ -1,0 +1,1 @@
+phpmyadmin-ctl install
