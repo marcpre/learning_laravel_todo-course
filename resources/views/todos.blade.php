@@ -11,7 +11,7 @@
 
 @section('content')
                 @foreach($todos as $todo)
-                    {{ $todo->todo }}
+                    {{ $todo->todo }} <button href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger">x</button>
                     <hr>
                 @endforeach
 @stop
