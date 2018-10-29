@@ -31,3 +31,13 @@ Route::get('/todo/delete/{id}', [
     'uses' => 'TodosController@delete',
     'as' => 'todo.delete'
 ]);
+
+Route::get('/todo/update/{id}', [
+    'uses' => 'TodosController@update',
+    'as' => 'todo.update'
+]);
+
+Route::post('/todo/save/{id}', [
+    'uses' => 'TodosController@save',
+    'as' => 'todos.save'
+]);

@@ -12,6 +12,9 @@
 @section('content')
                 @foreach($todos as $todo)
                     {{ $todo->todo }} <button href="{{ route('todo.delete', ['id' => $todo->id]) }}" class="btn btn-danger">x</button>
+                    
+                    <button href="{{ route('todo.update', ['id' => $todo->id]) }}" class="btn btn-info btn-xs">update</button>
+                    
                     <hr>
                 @endforeach
 @stop
