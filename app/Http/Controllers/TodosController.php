@@ -29,6 +29,9 @@ class TodosController extends Controller
     }
     
     public function delete($id) {
+        
+        dd($id);
+        
         $todo = Todo::find($id);
         
         $todo->delete();
@@ -42,12 +45,16 @@ class TodosController extends Controller
         return view('update')->with('todo', $todo);
     }
     
-    public function save(Request $request) {
+    public function save(Request $request, $id) {
         
-        dd($request);
+        // dd($request);
         
-        // $todo = Todo::find($id);
+        $todo = Todo::find($id);
+        
+        $todo->todo = $request->todo;
+        
+        $todo->save();
     
-        // return view('update')->with('todo', $todo);
+        return redirect()->route('todos');
     }
 }
