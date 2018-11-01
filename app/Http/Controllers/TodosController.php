@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
 use App\Http\Requests;
 use App\Todo;
 
@@ -24,6 +25,8 @@ class TodosController extends Controller
         
         $todo->save();
         
+        Session::flash('success', 'Your todo was created.');
+        
         // redirect user
         return redirect()->back();
     }
@@ -35,6 +38,8 @@ class TodosController extends Controller
         $todo = Todo::find($id);
         
         $todo->delete();
+
+        Session::flash('success', 'Your todo was deleted.');
     
         return redirect()->back();
     }
@@ -42,6 +47,8 @@ class TodosController extends Controller
     public function update($id) {
         $todo = Todo::find($id);
     
+        Session::flash('success', 'Your todo was updated.');
+
         return view('update')->with('todo', $todo);
     }
     
@@ -64,6 +71,8 @@ class TodosController extends Controller
         $todo->completed = 1;
         
         $todo->save();
+    
+        Session::flash('success', 'Your todo was marked as completed.');
     
         return redirect()->back();
     }
